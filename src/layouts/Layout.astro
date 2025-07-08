@@ -1,3 +1,7 @@
+---
+import "bootstrap/dist/css/bootstrap.min.css";
+---
+
 <!doctype html>
 <html lang="en">
 	<head>
@@ -5,18 +9,14 @@
 		<meta name="viewport" content="width=device-width" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="generator" content={Astro.generator} />
-		<title>Astro Basics</title>
+		<title>Bootstrap in Astro</title>
 	</head>
 	<body>
 		<slot />
+		<script>
+			import "bootstrap/dist/js/bootstrap.bundle.min.js";
+		</script>
 	</body>
 </html>
 
-<style>
-	html,
-	body {
-		margin: 0;
-		width: 100%;
-		height: 100%;
-	}
-</style>
+<style></style>

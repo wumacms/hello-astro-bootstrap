@@ -1,0 +1,24 @@
+---
+const { heroInfo } = Astro.props;
+---
+
+<section class="bg-info py-5">
+    <div class="container px-4 px-lg-5">
+        <div class="row gx-4 gx-lg-5 align-items-center">
+            <div class="col-lg-7">
+                <img
+                    class="img-fluid rounded mb-4 mb-lg-0"
+                    src={heroInfo.image}
+                    alt="轮播图"
+                />
+            </div>
+            <div class="col-lg-5">
+                <h1 class="font-weight-light">{heroInfo.title}</h1>
+                <p class="lead">{heroInfo.description}</p>
+                <a class="btn btn-primary" href={heroInfo.link}
+                    >{heroInfo.buttonText}</a
+                >
+            </div>
+        </div>
+    </div>
+</section>

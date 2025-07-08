@@ -1,52 +1,97 @@
-# Astro Starter Kit: Basics
+# 🌟 Astro 集成 Bootstrap 5 指南
+
+本指南将帮助你快速在 [Astro](https://astro.build) 项目中集成 Bootstrap 5，实现现代化网页的快速开发。
+
+---
+
+## ✅ 步骤 1：创建 Astro 项目
+
+打开终端并运行：
 
 ```sh
-pnpm create astro@latest -- --template basics
+$ pnpm create astro@latest hello-astro-bootstrap
 ```
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/astro/tree/latest/examples/basics)
-[![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/p/sandbox/github/withastro/astro/tree/latest/examples/basics)
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/withastro/astro?devcontainer_path=.devcontainer/basics/devcontainer.json)
-
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
-
-![just-the-basics](https://github.com/withastro/astro/assets/2244813/a0a5533c-a856-4198-8470-2d67b1d7c554)
-
-## 🚀 Project Structure
-
-Inside of your Astro project, you'll see the following folders and files:
-
-```text
-/
-├── public/
-│   └── favicon.svg
-├── src
-│   ├── assets
-│   │   └── astro.svg
-│   ├── components
-│   │   └── Welcome.astro
-│   ├── layouts
-│   │   └── Layout.astro
-│   └── pages
-│       └── index.astro
-└── package.json
+创建完成后，进入项目目录：
+```sh
+$ cd hello-astro-bootstrap
 ```
 
-To learn more about the folder structure of an Astro project, refer to [our guide on project structure](https://docs.astro.build/en/basics/project-structure/).
+---
 
-## 🧞 Commands
+## ✅ 步骤 2：添加 Bootstrap 5 依赖
 
-All commands are run from the root of the project, from a terminal:
+```sh
+$ pnpm add bootstrap
+```
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `pnpm install`             | Installs dependencies                            |
-| `pnpm dev`             | Starts local dev server at `localhost:4321`      |
-| `pnpm build`           | Build your production site to `./dist/`          |
-| `pnpm preview`         | Preview your build locally, before deploying     |
-| `pnpm astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `pnpm astro -- --help` | Get help using the Astro CLI                     |
+> 如果你看到以下提示：
 
-## 👀 Want to learn more?
+```js
+Ignored build scripts: esbuild, sharp.
+Run "pnpm approve-builds" to pick which dependencies should be allowed to run scripts.
+```
 
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+请执行：
+
+```sh
+$ pnpm approve-builds
+```
+
+---
+
+## ✅ 步骤 3：引入 Bootstrap 样式与脚本
+
+在 Astro 布局文件`src/layouts/Layout.astro`中引入样式和脚本，例如：
+
+```html
+---
+import "bootstrap/dist/css/bootstrap.min.css";
+---
+<!doctype html>
+<html lang="zh">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content="Astro" />
+    <title>Bootstrap in Astro</title>
+  </head>
+  <body>
+    <slot />
+    <script>
+        import "bootstrap/dist/js/bootstrap.bundle.min.js";
+    </script>
+  </body>
+</html>
+```
+
+---
+
+## ✅ 步骤 4：启动开发服务器
+
+```sh
+$ pnpm dev
+```
+
+---
+
+## ✅ 步骤 5：访问项目页面
+
+打开浏览器访问：
+
+```js
+http://localhost:4321
+```
+
+你将看到一个集成了 Bootstrap 5 的 Astro 页面。
+
+---
+
+## 📌 小贴士
+
+- 推荐将 Bootstrap 样式统一引入到 `src/layouts/Layout.astro` 中，便于维护；
+- Bootstrap 的 JavaScript 功能（如 modal、dropdown）需引入 `bootstrap.bundle.min.js`；
+- 可结合 Vue/React 组件与 `client:load` 等指令增强交互。
+
+---

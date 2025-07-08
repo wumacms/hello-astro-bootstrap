@@ -1,11 +1,19 @@
 ---
-import Welcome from '../components/Welcome.astro';
-import Layout from '../layouts/Layout.astro';
+// import Welcome from "../components/Welcome.astro";
+import HeroSection from "../components/HeroSection.astro";
+import Layout from "../layouts/Layout.astro";
 
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+const heroInfo = {
+	image: "https://placehold.co/600x400",
+	title: "极简创业解决方案",
+	description:
+		"专为中小企业打造的极简网站模板，快速上线，易于维护，助力品牌展示与客户转化。",
+	buttonText: "立即咨询",
+	link: "/contact",
+};
 ---
 
 <Layout>
-	<Welcome />
+	<!-- <Welcome /> -->
+	<HeroSection heroInfo={heroInfo} />
 </Layout>
